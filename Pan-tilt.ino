@@ -18,11 +18,9 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     char c = Serial.read();
-
     if (c == 'a') {
       pos_start = pos1;
       pos_end = pos1 + 30;
-
       for (int i = pos_start; i <= pos_end; i++) {
         servo1.write(i);
         delay(15); // small delay between each iteration. It determines how "slow" it moves
@@ -31,7 +29,6 @@ void loop() {
     } else if (c == 'd') {
       pos_start = pos1;
       pos_end = pos1 - 30;
-
       for (int i = pos_start; i >= pos_end; i--) {
         servo1.write(i);
         delay(15); // small delay between each iteration. It determines how "slow" it moves
@@ -40,7 +37,6 @@ void loop() {
     } else if (c == 'w') {
       pos_start = pos2;
       pos_end = pos2 + 30;
-
       for (int i = pos_start; i <= pos_end; i++) {
         servo2.write(i);
         delay(15); // small delay between each iteration. It determines how "slow" it moves
@@ -49,7 +45,6 @@ void loop() {
     } else if (c == 's') {
       pos_start = pos2;
       pos_end = pos2 - 30;
-
       for (int i = pos_start; i >= pos_end; i--) {
         servo2.write(i);
         delay(15); // small delay between each iteration. It determines how "slow" it moves
