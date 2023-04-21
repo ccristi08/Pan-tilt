@@ -18,7 +18,7 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     char c = Serial.read();
-    if (c == 'a') {
+    if (c == 'a') { // look left
       pos_start = pos1;
       pos_end = pos1 + 30;
       for (int i = pos_start; i <= pos_end; i++) {
@@ -26,7 +26,7 @@ void loop() {
         delay(15); // small delay between each iteration. It determines how "slow" it moves
       }
       pos1 = pos_end; // update current position of servo 1
-    } else if (c == 'd') {
+    } else if (c == 'd') { // look right
       pos_start = pos1;
       pos_end = pos1 - 30;
       for (int i = pos_start; i >= pos_end; i--) {
@@ -34,7 +34,7 @@ void loop() {
         delay(15); // small delay between each iteration. It determines how "slow" it moves
       }
       pos1 = pos_end; // update current position of servo 1
-    } else if (c == 'w') {
+    } else if (c == 'w') { // look up
       pos_start = pos2;
       pos_end = pos2 + 30;
       for (int i = pos_start; i <= pos_end; i++) {
@@ -42,7 +42,7 @@ void loop() {
         delay(15); // small delay between each iteration. It determines how "slow" it moves
       }
       pos2 = pos_end; // update current position of servo 2
-    } else if (c == 's') {
+    } else if (c == 's') { // look down
       pos_start = pos2;
       pos_end = pos2 - 30;
       for (int i = pos_start; i >= pos_end; i--) {
@@ -50,6 +50,11 @@ void loop() {
         delay(15); // small delay between each iteration. It determines how "slow" it moves
       }
       pos2 = pos_end; // update current position of servo 2
+    } else if (c == 'c') { // look at center
+      pos1 = 90;
+      pos2 = 90;
+      servo1.write(pos1);
+      servo2.write(pos2);
     }
   }
 }
